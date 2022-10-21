@@ -10,6 +10,9 @@ def home(request):
 def feed(request):
 	return render(request, 'feed.html')
 
+def log_in(request):
+	return render(request, 'log_in.html')
+
 
 
 
