@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from microblogs.forms import SignUpForm
 from .forms import LogInForm, SignUpForm
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login, logout
 from django.contrib import messages
 
  
@@ -30,7 +30,9 @@ def log_in(request):
 	return render(request, 'log_in.html', {'form':form})
 
 
-
+def log_out(request):
+	logout(request)
+	return redirect('home')
 
 
 def sign_up(request):
