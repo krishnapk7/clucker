@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from microblogs.forms import SignUpForm
 from .forms import LogInForm, SignUpForm
 from django.contrib.auth import authenticate,login
+from django.contrib import messages
 
  
 def home(request):
@@ -21,6 +22,8 @@ def log_in(request):
 			if user is not None:
 				login(request, user)
 				return redirect('feed')
+
+		messages.add_message(request, messages.ERROR, "The credentials provided were invlaid!")
 
 
 	form = LogInForm()
