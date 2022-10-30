@@ -1,14 +1,10 @@
-<html>
-<head>
-	<title>Clucker</title>
+{% extends 'base.html' %}
+{% block body %}
 
-</head>
-	<body>
 		<h1>Sign Up</h1>
 		<form action="{% url 'sign_up' %}" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Sign up">
         </form>
-	</body>		
-</html>
+{% endblock %}
